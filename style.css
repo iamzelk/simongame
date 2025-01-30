@@ -11,23 +11,26 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0;
+    font-family: 'Chakra Petch', sans-serif;
 }
 
 .container {
     width: 80%;
     height: 80%;
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     border-radius: 24px;
     border: 1px solid #003477;
     background-image: url("img/Ruido.png");
     background-size: 100% 100%;
     position: relative;
+    padding: 20px;
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
-.image-container img {
+.image-container {
     width: 788px;
     height: auto;
     border-radius: 8px;
@@ -35,75 +38,114 @@ body {
 
 .game-container {
     text-align: center;
-    color: #fff;
-    width: 788px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 h1 {
-    font-family: 'Chakra Petch', sans-serif;
     font-size: 64px;
-}
-
-.lives {
     margin-bottom: 20px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-align: center;
 }
 
-.tabuleiro {
+#game-board {
     display: grid;
-    grid-template-columns: repeat(4, 100px);
-    gap: 10px;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-.carta {
-    width: 100px;
-    height: 100px;
-    background-color: #003477;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    color: white;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: transform 0.3s;
-}
-
-.carta.virada {
-    background-color: #ffffff;
-    color: #003477;
-    transform: rotateY(180deg);
-}
-
-.controls {
-    display: flex;
-    justify-content: center;
+    grid-template-columns: repeat(2, 150px);
+    grid-template-rows: repeat(2, 150px);
     gap: 20px;
-    margin-top: 20px;
+    margin: 20px;
+    width: 340px;
+    height: 340px;
 }
 
-.controls button {
+.color {
+    width: 150px;
+    height: 150px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.color:active {
+    transform: scale(0.9);
+}
+
+#green {
+    background-color: #00a74a;
+    box-shadow: 0 0 15px #00ff00;
+}
+
+#red {
+    background-color: #9f0f17;
+    box-shadow: 0 0 15px #ff0000;
+}
+
+#yellow {
+    background-color: #cca707;
+    box-shadow: 0 0 15px #ffff00;
+}
+
+#blue {
+    background-color: #094a8f;
+    box-shadow: 0 0 15px #0000ff;
+}
+
+button {
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    color: white;
     background: linear-gradient(145deg, #004080, #002a5e);
     border: 2px solid #003477;
     border-radius: 10px;
-    color: white;
-    font-size: 1rem;
-    font-weight: bold;
-    padding: 15px 30px;
     cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
+    font-weight: bold;
     text-transform: uppercase;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.controls button:disabled {
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+button:active {
+    transform: scale(0.95);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+}
+
+button:disabled {
     background: #555;
     border: 2px solid #444;
     color: #bbb;
     cursor: not-allowed;
     transform: none;
     box-shadow: none;
+}
+
+.status {
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: bold;
+    color: #00ff00;
+}
+
+.info {
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.info p {
+    margin: 5px 0;
+}
+
+#current-level {
+    color: #00ff00;
+    font-weight: bold;
+}
+
+#highest-level {
+    color: #ffd700;
+    font-weight: bold;
 }
